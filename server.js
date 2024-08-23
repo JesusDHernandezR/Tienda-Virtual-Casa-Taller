@@ -13,10 +13,10 @@ app.use(cors());
 app.use(express.json({ extended: false }));
 
 // Rutas
-//app.use('/api/auth', require('./routes/auth'));
-//app.use('/api/productos', require('./routes/productos'));
-//app.use('/api/carrito', require('./routes/carrito'));
-//app.use('/api/ordenes', require('./routes/ordenes'));
+app.use('/api/auth', require('./routes/auth'));
+/*app.use('/api/productos', require('./routes/producto'));
+app.use('/api/carrito', require('./routes/carrito'));
+app.use('/api/ordenes', require('./routes/orden'));*/
 
 // Configurar el puerto y escuchar
 const PORT = process.env.PORT || 5000;
