@@ -14,7 +14,7 @@ router.post("/",
 		const user = await Usuario.findOne({ correo: req.body.correo });
 		if (!user)
 			return res.status(401).send({ message: "Invalid Email or Password" });
-
+		
 		const validPassword = await bcrypt.compare(
 			req.body.password,
 			user.contrasena

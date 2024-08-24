@@ -14,6 +14,7 @@ app.use(express.json({ extended: false }));
 
 // Rutas
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/usuarios', require('./routes/usuario'));
 /*app.use('/api/productos', require('./routes/producto'));
 app.use('/api/carrito', require('./routes/carrito'));
 app.use('/api/ordenes', require('./routes/orden'));*/

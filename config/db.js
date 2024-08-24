@@ -1,14 +1,15 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
+const mongoose =require('mongoose');
+const asyncHandler = require("../middleware/asyncHandler");
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log('MongoDB Atlas Connected');
-  } catch (err) {
-    console.error(err.message);
-    process.exit(1);
-  }
-};
-
-module.exports = connectDB;
+module.exports= asyncHandler(async()=>{
+    const connectionParams ={
+        useNewUrlParse: true,
+        useCreateIndex:true,
+        useUnfieldTopology:true,
+        useFindAndModify:false
+    };
+    const connection =await mongoose.connect(process.env.DB, mongoose.connectionParams);
+    connection
+        ?console.log("Conectado a la base de datos")
+        :console.log("No se pudo conectar a la base de datos")
+})
